@@ -40,10 +40,6 @@ object Dependency {
     }
 
     object Google {
-        const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx"
-        const val FIREBASE_BOM = "com.google.firebase:firebase-bom:${Versions.FIREBASE_BOM}"
-        const val GMS_PLAY_SERVICE_AUTH =
-            "com.google.android.gms:play-services-auth:${Versions.GMS_PLAY_SERVICE_AUTH}"
         const val GMS_GOOGLE_SERVICE =
             "com.google.gms:google-services:${Versions.GMS_GOOGLE_SERVICE}"
         const val HILT_ANDROID = "com.google.dagger:hilt-android:${Versions.HILT}"
@@ -51,7 +47,6 @@ object Dependency {
         const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
         const val GMS_PLAY_SERVICE_BASE =
             "com.google.android.gms:play-services-base:${Versions.GMS_PLAY_SERVICE_BASE}"
-        const val FIREBASE = "com.google.firebase:firebase-auth-ktx:${Versions.FIREBASE}"
         const val LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIVEDATA}"
     }
 
@@ -77,17 +72,6 @@ object Dependency {
         const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
     }
 
-    object BottomNav {
-        const val NAV_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:${Versions.NAV}"
-        const val NAV_UI = "androidx.navigation:navigation-ui-ktx:${Versions.NAV}"
-    }
-
-    object Rx {
-        const val RX_BINNDING = "com.jakewharton.rxbinding4:rxbinding:${Versions.RX_BINDING}"
-        const val RX_JAVA = "io.reactivex.rxjava3:rxjava:${Versions.RX_JAVA}"
-        const val RX_ANDROID = "io.reactivex.rxjava3:rxandroid:${Versions.RX_ANDROID}"
-    }
-
     object Coroutine {
         const val COROUTINE =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINE}"
@@ -99,5 +83,9 @@ object Dependency {
 
     object Lottie {
         const val LOTTIE = "com.airbnb.android:lottie:${Versions.LOTTIE_VERSION}"
+    }
+
+    object Temi {
+        const val TEMI = "com.robotemi:sdk:${Versions.TEMI}"
     }
 }

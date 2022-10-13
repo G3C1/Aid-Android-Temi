@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.g3c1.oasis_android_temi"
-        minSdk = 26
+        minSdk = 22
         targetSdk = 32
         versionCode = 1
         versionName = "1.0"
@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-
+    implementation(Dependency.Temi.TEMI)
     implementation(Dependency.AndroidX.CORE_KTX)
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.Google.MATERIAL)
