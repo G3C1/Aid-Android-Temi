@@ -3,6 +3,7 @@
     package="com.g3c1.oasis_android_temi">
 
     <application
+        android:name=".di.TemiApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
