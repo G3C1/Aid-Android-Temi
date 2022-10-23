@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Oasis-Android-Temi</string>
+    <string name="moving_ex_text">몇번 자리로 이동중...</string>
 </resources>
