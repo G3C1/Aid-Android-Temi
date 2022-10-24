@@ -28,11 +28,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/order_recycler"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:clipToPadding="false"
             android:layout_marginVertical="30dp"
-            android:layout_marginHorizontal="200dp"
+            android:layout_marginHorizontal="100dp"
             tools:listitem="@layout/order_list_item"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             android:layout_width="0dp"
