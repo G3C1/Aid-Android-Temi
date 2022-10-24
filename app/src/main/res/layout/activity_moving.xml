@@ -16,9 +16,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
+            android:layout_width="126dp"
+            android:layout_height="370dp"
+            android:layout_marginTop="210dp"
             android:src="@drawable/temi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="@string/moving_ex_text"
             android:textColor="#2B2B2B"
-            android:textSize="40sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
