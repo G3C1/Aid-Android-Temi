@@ -2,24 +2,28 @@ package com.g3c1.oasis_android_temi.ui.moving
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
-import androidx.activity.viewModels
+import android.view.animation.AnimationUtils
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.base.BaseActivity
 import com.g3c1.oasis_android_temi.databinding.ActivityMovingBinding
-import com.g3c1.oasis_android_temi.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_moving) {
-
-    private val vm by viewModels<MainViewModel>()
-
     override fun init() {
         animation()
     }
 
     private fun animation() {
-        val goFront = ObjectAnimator.ofFloat(binding.temi, "translationX", 430f).apply {
+        val anim = AnimationUtils.loadAnimation(this,R.anim.alpha)
+        val anim2 = AnimationUtils.loadAnimation(this,R.anim.alpha2)
+        val anim3 = AnimationUtils.loadAnimation(this, R.anim.alpha3)
+
+        binding.exDot1.animation = anim
+        binding.exDot2.animation = anim2
+        binding.exDot3.animation = anim3
+
+        val goFront = ObjectAnimator.ofFloat(binding.temi, "translationX", 480f).apply {
             duration = 3000
             repeatCount = ValueAnimator.INFINITE
         }

@@ -25,7 +25,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
+            android:id="@+id/table_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ex_text"
+            android:textColor="#2B2B2B"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/moving_text"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/moving_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/moving_ex_text"
@@ -34,6 +47,39 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/ex_dot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dot"
+            android:textColor="#2B2B2B"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/moving_text"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/ex_dot2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dot"
+            android:textColor="#2B2B2B"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ex_dot1"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/ex_dot3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dot"
+            android:textColor="#2B2B2B"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ex_dot2"
             app:layout_constraintTop_toBottomOf="@+id/temi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
