@@ -15,18 +15,18 @@ class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_mov
     }
 
     private fun animation() {
-        val anim = AnimationUtils.loadAnimation(this,R.anim.alpha)
-        val anim2 = AnimationUtils.loadAnimation(this,R.anim.alpha2)
+        val anim = AnimationUtils.loadAnimation(this, R.anim.alpha)
+        val anim2 = AnimationUtils.loadAnimation(this, R.anim.alpha2)
         val anim3 = AnimationUtils.loadAnimation(this, R.anim.alpha3)
-
-        binding.exDot1.animation = anim
-        binding.exDot2.animation = anim2
-        binding.exDot3.animation = anim3
 
         val goFront = ObjectAnimator.ofFloat(binding.temi, "translationX", 480f).apply {
             duration = 3000
             repeatCount = ValueAnimator.INFINITE
         }
+
+        binding.exDot1.animation = anim
+        binding.exDot2.animation = anim2
+        binding.exDot3.animation = anim3
         goFront.start()
     }
 }
