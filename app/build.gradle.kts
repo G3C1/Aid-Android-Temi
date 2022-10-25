@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation(Dependency.Temi.TEMI)
+    //implementation(Dependency.Temi.TEMI)
     implementation(Dependency.AndroidX.CORE_KTX)
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.AndroidX.LIFECYCLE_VIEWMODEL_KTX)

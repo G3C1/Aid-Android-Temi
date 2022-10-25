@@ -15,7 +15,8 @@
         tools:context=".ui.moving.MovingActivity">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:layout_marginEnd="300dp"
+            android:id="@+id/temi"
             android:layout_width="126dp"
             android:layout_height="370dp"
             android:layout_marginTop="210dp"
@@ -33,7 +34,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
