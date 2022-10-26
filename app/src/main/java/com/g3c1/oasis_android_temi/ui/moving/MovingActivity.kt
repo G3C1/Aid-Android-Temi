@@ -24,9 +24,11 @@ class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_mov
             repeatCount = ValueAnimator.INFINITE
         }
 
-        binding.exDot1.animation = anim
-        binding.exDot2.animation = anim2
-        binding.exDot3.animation = anim3
+        with(binding) {
+            exDot1.animation = anim
+            exDot2.animation = anim2
+            exDot3.animation = anim3
+        }
         goFront.start()
     }
 }

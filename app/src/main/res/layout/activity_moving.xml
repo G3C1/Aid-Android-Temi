@@ -27,22 +27,22 @@
 
 
         <TextView
-            android:id="@+id/table_num"
+            android:id="@+id/tableNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ex_text"
-            android:textColor="#2B2B2B"
+            android:textColor="@color/black2"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/moving_text"
+            app:layout_constraintEnd_toStartOf="@+id/movingText"
             app:layout_constraintTop_toBottomOf="@+id/temi" />
 
         <TextView
-            android:id="@+id/moving_text"
+            android:id="@+id/movingText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/moving_ex_text"
-            android:textColor="#2B2B2B"
+            android:textColor="@color/black2"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,36 +50,36 @@
             app:layout_constraintTop_toBottomOf="@+id/temi" />
 
         <TextView
-            android:id="@+id/ex_dot1"
+            android:id="@+id/exDot1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dot"
-            android:textColor="#2B2B2B"
+            android:textColor="@color/black2"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/moving_text"
+            app:layout_constraintStart_toEndOf="@id/movingText"
             app:layout_constraintTop_toBottomOf="@+id/temi" />
 
         <TextView
-            android:id="@+id/ex_dot2"
+            android:id="@+id/exDot2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dot"
-            android:textColor="#2B2B2B"
+            android:textColor="@color/black2"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ex_dot1"
+            app:layout_constraintStart_toEndOf="@id/exDot1"
             app:layout_constraintTop_toBottomOf="@+id/temi" />
 
         <TextView
-            android:id="@+id/ex_dot3"
+            android:id="@+id/exDot3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dot"
-            android:textColor="#2B2B2B"
+            android:textColor="@color/black2"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ex_dot2"
+            app:layout_constraintStart_toEndOf="@id/exDot2"
             app:layout_constraintTop_toBottomOf="@+id/temi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
