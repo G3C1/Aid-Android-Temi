@@ -14,5 +14,73 @@
         android:layout_height="match_parent"
         tools:context=".ui.moving.MovingActivity">
 
+        <ImageView
+            android:layout_marginEnd="300dp"
+            android:id="@+id/temi"
+            android:layout_width="126dp"
+            android:layout_height="370dp"
+            android:layout_marginTop="210dp"
+            android:src="@drawable/temi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tableNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ex_text"
+            android:textColor="@color/black2"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/movingText"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/movingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moving_ex_text"
+            android:textColor="@color/black2"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/exDot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dot"
+            android:textColor="@color/black2"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/movingText"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/exDot2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dot"
+            android:textColor="@color/black2"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/exDot1"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
+        <TextView
+            android:id="@+id/exDot3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dot"
+            android:textColor="@color/black2"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/exDot2"
+            app:layout_constraintTop_toBottomOf="@+id/temi" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

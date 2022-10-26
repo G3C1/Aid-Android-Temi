@@ -7,6 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    val robot: Robot
-): ViewModel() {
+    private val robot: Robot
+) : ViewModel() {
+
 }
