@@ -3,4 +3,7 @@
     <string name="moving_ex_text">번 자리로 이동중</string>
     <string name="dot">.</string>
     <string name="ex_text">몇</string>
+    <string name="arrive">도착 완료</string>
+    <string name="arrive_msg">음식을 받으신 후에 복귀버튼을 눌러주세요.</string>
+    <string name="back">복귀</string>
 </resources>
