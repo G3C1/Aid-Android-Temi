@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.databinding.OrderListItemBinding
-import com.g3c1.oasis_android_temi.ui.Utils.ItemDecorator
-import com.g3c1.oasis_android_temi.ui.adapter.dto.FoodInfo
 import com.g3c1.oasis_android_temi.ui.adapter.dto.OrderInfo
 
 class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCallBack) {
@@ -19,10 +17,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
 
         fun bind(data: OrderInfo) {
             binding.tableNum.text = data.tableNum.toString()
-            binding.executePendingBindings()
-        }
-
-        fun settingRecycler(foodList: List<FoodInfo>) {
+            binding.foodRecycler.adapter = detailOrderAdapter
             with(binding.foodRecycler) {
                 layoutManager = LinearLayoutManager(
                     context,
@@ -31,8 +26,8 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
                 )
                 setHasFixedSize(true)
             }
-            binding.foodRecycler.adapter = detailOrderAdapter
-            detailOrderAdapter.submitList(foodList)
+            detailOrderAdapter.submitList(data.foodList)
+            binding.executePendingBindings()
         }
     }
 
@@ -47,16 +42,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
     }
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
-        val foodList = mutableListOf(
-            FoodInfo("스파게티", 3),
-            FoodInfo("돈까스", 2),
-            FoodInfo("치킨", 1),
-            FoodInfo("짜장면", 4),
-            FoodInfo("족발", 1),
-        )
-
         holder.bind(getItem(position))
-        holder.settingRecycler(foodList)
     }
 
     companion object {
