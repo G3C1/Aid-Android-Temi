@@ -3,7 +3,7 @@ package com.g3c1.oasis_android_temi.data.repositoryimpl
 import com.g3c1.oasis_android_temi.data.datasource.datasource.PurchaseDataSource
 import com.g3c1.oasis_android_temi.data.remote.util.ApiState
 import com.g3c1.oasis_android_temi.domain.repository.PurchaseRepository
-import com.g3c1.oasis_android_temi.dto.OrderInfo
+import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

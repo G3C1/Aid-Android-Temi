@@ -1,6 +1,6 @@
 package com.g3c1.oasis_android_temi.data.remote
 
-import com.g3c1.oasis_android_temi.dto.OrderInfo
+import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 import retrofit2.Response
 import retrofit2.http.GET
 

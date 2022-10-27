@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.databinding.OrderListItemItemBinding
-import com.g3c1.oasis_android_temi.dto.FoodInfo
+import com.g3c1.oasis_android_temi.dto.purchase.FoodInfo
 
 class DetailOrderAdapter :
     ListAdapter<FoodInfo, DetailOrderAdapter.DetailOrderViewHolder>(diffCallBack) {

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.databinding.OrderListItemBinding
-import com.g3c1.oasis_android_temi.dto.OrderInfo
+import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 
 class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCallBack) {
     class OrderViewHolder(private val binding: OrderListItemBinding) :
