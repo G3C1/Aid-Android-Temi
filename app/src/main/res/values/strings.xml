@@ -6,4 +6,8 @@
     <string name="arrive">도착 완료</string>
     <string name="arrive_msg">음식을 받으신 후에 복귀버튼을 눌러주세요.</string>
     <string name="back">복귀</string>
+    <string name="order_list">주문 목록</string>
+    <string name="ex_text_2">음식 이름</string>
+    <string name="cnt">개</string>
+    <string name="num">번</string>
 </resources>
