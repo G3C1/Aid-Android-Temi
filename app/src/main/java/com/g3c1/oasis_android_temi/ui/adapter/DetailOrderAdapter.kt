@@ -13,8 +13,8 @@ class DetailOrderAdapter :
     class DetailOrderViewHolder(private val binding: OrderListItemItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: FoodInfo) {
-            binding.foodName.text = data.food
-            binding.foodCount.text = data.foodCnt.toString()
+            binding.foodName.text = data.foodName
+            binding.foodCount.text = data.foodCount.toString()
         }
     }
 
@@ -45,7 +45,7 @@ class DetailOrderAdapter :
                 oldItem: FoodInfo,
                 newItem: FoodInfo
             ): Boolean {
-                return oldItem.food == newItem.food && oldItem.foodCnt == newItem.foodCnt
+                return oldItem.foodName == newItem.foodName && oldItem.foodCount == newItem.foodCount
             }
         }
     }

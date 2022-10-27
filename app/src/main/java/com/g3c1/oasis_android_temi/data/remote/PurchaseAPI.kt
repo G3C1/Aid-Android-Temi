@@ -5,6 +5,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface PurchaseAPI {
-    @GET("/purchase/")
+    @GET("purchase/")
     suspend fun getOrderList(): Response<List<OrderInfo>>
 }

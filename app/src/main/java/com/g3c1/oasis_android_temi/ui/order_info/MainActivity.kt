@@ -32,7 +32,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             mainViewModel.mOrderDataList.collect {
                 when (it) {
                     is ApiState.Success -> {
-                        Log.d("TAG", it.data.toString())
+                        Log.d("loading", it.data.toString())
                         mainViewModel.mOrderDataList.value = ApiState.Loading()
                         with(binding.orderRecycler) {
                             layoutManager = GridLayoutManager(
@@ -48,10 +48,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                         }
                     }
                     is ApiState.Error -> {
-                        Log.e("TAG", it.message.toString())
+                        Log.e("loading", it.message.toString())
                         mainViewModel.mOrderDataList.value = ApiState.Loading()
                     }
-                    is ApiState.Loading -> {}
+                    is ApiState.Loading -> {
+                        Log.d("loading","loading")
+                    }
                 }
             }
         }

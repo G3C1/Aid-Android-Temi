@@ -16,7 +16,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
         private val detailOrderAdapter = DetailOrderAdapter()
 
         fun bind(data: OrderInfo) {
-            binding.tableNum.text = data.tableNum.toString()
+            binding.tableNum.text = data.seatNumber.toString()
             binding.foodRecycler.adapter = detailOrderAdapter
             with(binding.foodRecycler) {
                 layoutManager = LinearLayoutManager(
@@ -26,7 +26,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
                 )
                 setHasFixedSize(true)
             }
-            detailOrderAdapter.submitList(data.foodList)
+            detailOrderAdapter.submitList(data.foodInfoList)
             binding.executePendingBindings()
         }
     }
@@ -58,7 +58,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
                 oldItem: OrderInfo,
                 newItem: OrderInfo
             ): Boolean {
-                return oldItem.tableNum == newItem.tableNum && oldItem.foodList == newItem.foodList
+                return oldItem.seatNumber == newItem.seatNumber && oldItem.foodInfoList == newItem.foodInfoList
             }
         }
     }
