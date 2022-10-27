@@ -2,12 +2,12 @@ package com.g3c1.oasis_android_temi.ui.order_info
 
 import androidx.recyclerview.widget.GridLayoutManager
 import com.g3c1.oasis_android_temi.R
-import com.g3c1.oasis_android_temi.base.BaseActivity
+import com.g3c1.oasis_android_temi.ui.base.BaseActivity
 import com.g3c1.oasis_android_temi.databinding.ActivityMainBinding
 import com.g3c1.oasis_android_temi.ui.util.ItemDecorator
 import com.g3c1.oasis_android_temi.ui.adapter.OrderAdapter
-import com.g3c1.oasis_android_temi.ui.adapter.dto.FoodInfo
-import com.g3c1.oasis_android_temi.ui.adapter.dto.OrderInfo
+import com.g3c1.oasis_android_temi.dto.FoodInfo
+import com.g3c1.oasis_android_temi.dto.OrderInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

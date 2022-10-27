@@ -1,4 +1,4 @@
-package com.g3c1.oasis_android_temi.base
+package com.g3c1.oasis_android_temi.ui.base
 
 import android.os.Bundle
 import android.widget.Toast
