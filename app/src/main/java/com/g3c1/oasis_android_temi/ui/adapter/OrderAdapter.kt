@@ -10,10 +10,20 @@ import com.g3c1.oasis_android_temi.databinding.OrderListItemBinding
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 
 class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCallBack) {
-    class OrderViewHolder(private val binding: OrderListItemBinding) :
+    class OrderViewHolder(
+        private val binding: OrderListItemBinding,
+        listener: onItemClickListener
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val detailOrderAdapter = DetailOrderAdapter()
+
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
 
         fun bind(data: OrderInfo) {
             binding.tableNum.text = data.seatNumber.toString()
@@ -31,13 +41,23 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
         }
     }
 
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         return OrderViewHolder(
             OrderListItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), mListener
         )
     }
 
