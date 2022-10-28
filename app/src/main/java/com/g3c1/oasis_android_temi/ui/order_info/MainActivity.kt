@@ -1,56 +1,61 @@
 package com.g3c1.oasis_android_temi.ui.order_info
 
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.g3c1.oasis_android_temi.R
-import com.g3c1.oasis_android_temi.base.BaseActivity
+import com.g3c1.oasis_android_temi.data.remote.util.ApiState
 import com.g3c1.oasis_android_temi.databinding.ActivityMainBinding
-import com.g3c1.oasis_android_temi.ui.util.ItemDecorator
 import com.g3c1.oasis_android_temi.ui.adapter.OrderAdapter
-import com.g3c1.oasis_android_temi.ui.adapter.dto.FoodInfo
-import com.g3c1.oasis_android_temi.ui.adapter.dto.OrderInfo
+import com.g3c1.oasis_android_temi.ui.base.BaseActivity
+import com.g3c1.oasis_android_temi.ui.util.ItemDecorator
+import com.g3c1.oasis_android_temi.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private val orderAdapter = OrderAdapter()
-    private val orderList = mutableListOf(
-        OrderInfo(
-            mutableListOf(
-                FoodInfo("후라이드 치킨", 2),
-                FoodInfo("후라이드 치킨", 2),
-                FoodInfo("후라이드 치킨", 2)
-            ), 1
-        ),
-        OrderInfo(
-            mutableListOf(
-                FoodInfo("후라이드 치킨", 4),
-                FoodInfo("후라이드 치킨", 2),
-                FoodInfo("후라이드 치킨", 2)
-            ), 2
-        ),
-        OrderInfo(mutableListOf(FoodInfo("후라이드 치킨", 7)), 3),
-        OrderInfo(mutableListOf(FoodInfo("후라이드 치킨", 2)), 4),
-        OrderInfo(mutableListOf(FoodInfo("후라이드 치킨", 3)), 5),
-        OrderInfo(mutableListOf(FoodInfo("후라이드 치킨", 1)), 6),
-    )
+    private val mainViewModel by viewModels<MainViewModel>()
 
     override fun init() {
-        settingRecycler()
+        getOrderList()
     }
 
-    fun settingRecycler() {
-        with(binding.orderRecycler) {
-            layoutManager = GridLayoutManager(
-                context,
-                2,
-                GridLayoutManager.VERTICAL,
-                false
-            )
-            addItemDecoration(ItemDecorator(90, "VERTICAL"))
-            setHasFixedSize(true)
-            binding.orderRecycler.adapter = orderAdapter
-            orderAdapter.submitList(orderList)
+    private fun getOrderList() {
+        lifecycleScope.launch {
+            mainViewModel.getOrderList()
+            mainViewModel.mOrderDataList.collect {
+                when (it) {
+                    is ApiState.Success -> {
+                        Log.d("loading", it.data.toString())
+                        mainViewModel.mOrderDataList.value = ApiState.Loading()
+                        with(binding.orderRecycler) {
+                            layoutManager = GridLayoutManager(
+                                context,
+                                2,
+                                GridLayoutManager.VERTICAL,
+                                false
+                            )
+                            addItemDecoration(ItemDecorator(90, "VERTICAL"))
+                            setHasFixedSize(true)
+                            binding.orderRecycler.adapter = orderAdapter
+                            orderAdapter.submitList(it.data)
+                        }
+                    }
+                    is ApiState.Error -> {
+                        Log.e("loading", it.message.toString())
+                        mainViewModel.mOrderDataList.value = ApiState.Loading()
+                    }
+                    is ApiState.Loading -> {
+                        Log.d("loading","loading")
+                    }
+                }
+            }
         }
     }
 }

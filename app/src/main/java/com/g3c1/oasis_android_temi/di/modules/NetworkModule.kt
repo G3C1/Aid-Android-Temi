@@ -1,5 +1,6 @@
 package com.g3c1.oasis_android_temi.di.modules
 
+import com.g3c1.oasis_android_temi.data.remote.PurchaseAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,6 +46,12 @@ object NetworkModule {
     @Singleton
     fun provideConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideSeatService(retrofit: Retrofit): PurchaseAPI {
+        return retrofit.create(PurchaseAPI::class.java)
     }
 
 

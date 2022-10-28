@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.databinding.OrderListItemBinding
-import com.g3c1.oasis_android_temi.ui.adapter.dto.OrderInfo
+import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 
 class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCallBack) {
     class OrderViewHolder(private val binding: OrderListItemBinding) :
@@ -16,7 +16,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
         private val detailOrderAdapter = DetailOrderAdapter()
 
         fun bind(data: OrderInfo) {
-            binding.tableNum.text = data.tableNum.toString()
+            binding.tableNum.text = data.seatNumber.toString()
             binding.foodRecycler.adapter = detailOrderAdapter
             with(binding.foodRecycler) {
                 layoutManager = LinearLayoutManager(
@@ -26,7 +26,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
                 )
                 setHasFixedSize(true)
             }
-            detailOrderAdapter.submitList(data.foodList)
+            detailOrderAdapter.submitList(data.foodInfoList)
             binding.executePendingBindings()
         }
     }
@@ -58,7 +58,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
                 oldItem: OrderInfo,
                 newItem: OrderInfo
             ): Boolean {
-                return oldItem.tableNum == newItem.tableNum && oldItem.foodList == newItem.foodList
+                return oldItem.seatNumber == newItem.seatNumber && oldItem.foodInfoList == newItem.foodInfoList
             }
         }
     }
