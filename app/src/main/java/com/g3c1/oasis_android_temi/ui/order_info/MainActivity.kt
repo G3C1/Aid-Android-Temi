@@ -1,5 +1,6 @@
 package com.g3c1.oasis_android_temi.ui.order_info
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
@@ -11,6 +12,7 @@ import com.g3c1.oasis_android_temi.databinding.ActivityMainBinding
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 import com.g3c1.oasis_android_temi.ui.adapter.OrderAdapter
 import com.g3c1.oasis_android_temi.ui.base.BaseActivity
+import com.g3c1.oasis_android_temi.ui.moving.MovingActivity
 import com.g3c1.oasis_android_temi.ui.util.ItemDecorator
 import com.g3c1.oasis_android_temi.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +28,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private lateinit var result: List<OrderInfo>
     private var isClick = false
     private var seatId: Long = 0
+    private var seatNum: Int = 0
 
     override fun init() {
         getOrderList()
@@ -33,8 +36,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun onClick() {
+        val intent = Intent(this, MovingActivity::class.java)
         binding.moveBtn.setOnClickListener {
+            intent.putExtra("seatNum", seatNum.toString())
             moveTemi(seatId = seatId)
+            startActivity(intent)
         }
     }
 
@@ -49,6 +55,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     binding.moveBtn.visibility = View.INVISIBLE
                 }
                 seatId = result[position].seatId
+                seatNum = result[position].seatNumber
                 binding.tableNum.text = result[position].seatNumber.toString()
             }
         })
@@ -60,14 +67,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             mainViewModel.mMoveTemi.collect {
                 when (it) {
                     is ApiState.Success -> {
-
+                        Log.d(TAG, "MoveTemi: Success")
                     }
                     is ApiState.Error -> {
                         Log.e(TAG, it.message.toString())
                         mainViewModel.mOrderDataList.value = ApiState.Loading()
                     }
                     is ApiState.Loading -> {
-                        Log.d(TAG, "loading")
+                        Log.d(TAG, "MoveTemi: loading")
                     }
                 }
             }
@@ -102,7 +109,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                         mainViewModel.mOrderDataList.value = ApiState.Loading()
                     }
                     is ApiState.Loading -> {
-                        Log.d(TAG, "loading")
+                        Log.d(TAG, "OrderList: loading")
                     }
                 }
             }

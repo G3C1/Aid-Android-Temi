@@ -3,15 +3,21 @@ package com.g3c1.oasis_android_temi.ui.moving
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.view.animation.AnimationUtils
+import androidx.activity.viewModels
 import com.g3c1.oasis_android_temi.R
-import com.g3c1.oasis_android_temi.ui.base.BaseActivity
 import com.g3c1.oasis_android_temi.databinding.ActivityMovingBinding
+import com.g3c1.oasis_android_temi.ui.base.BaseActivity
+import com.g3c1.oasis_android_temi.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_moving) {
+
+    private val vm by viewModels<MainViewModel>()
+
     override fun init() {
         animation()
+        initUi()
     }
 
     private fun animation() {
@@ -30,5 +36,9 @@ class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_mov
             exDot3.animation = anim3
         }
         goFront.start()
+    }
+
+    private fun initUi() {
+        binding.tableNum.text = intent.getStringExtra("seatNum")
     }
 }
