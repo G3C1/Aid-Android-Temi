@@ -15,5 +15,4 @@ object DataSourceModule {
     @Provides
     @Singleton
     fun providePurchaseDataSource(api: PurchaseAPI) = PurchaseDataSourceImpl(api = api)
-
 }

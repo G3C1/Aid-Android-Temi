@@ -17,8 +17,8 @@ class PurchaseDataSourceImpl @Inject constructor(
             try {
                 val response = api.getOrderList()
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        emit(ApiState.Success(it))
+                    response.body()?.run {
+                        emit(ApiState.Success(this))
                     }
                 } else {
                     try {
