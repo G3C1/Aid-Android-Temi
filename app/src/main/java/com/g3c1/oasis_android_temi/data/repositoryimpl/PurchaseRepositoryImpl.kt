@@ -13,4 +13,8 @@ class PurchaseRepositoryImpl @Inject constructor(
     override suspend fun getOrderList(): Flow<ApiState<List<OrderInfo>>> {
         return dataSource.getOrderList()
     }
+
+    override suspend fun moveTemi(seatId: Long): Flow<ApiState<Void>> {
+        return dataSource.moveTemi(seatId = seatId)
+    }
 }

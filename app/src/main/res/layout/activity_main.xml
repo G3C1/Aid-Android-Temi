@@ -46,13 +46,13 @@
                 tools:listitem="@layout/order_list_item" />
 
             <FrameLayout
+                android:background="@drawable/move_btn_bg"
                 android:id="@+id/move_btn"
                 android:visibility="invisible"
                 android:layout_width="600dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center_horizontal|bottom"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/move_btn_bg">
+                android:layout_marginBottom="30dp">
 
                 <TextView
                     android:id="@+id/table_num"

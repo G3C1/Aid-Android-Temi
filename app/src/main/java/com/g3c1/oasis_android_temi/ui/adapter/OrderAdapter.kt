@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.databinding.OrderListItemBinding
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 
@@ -17,11 +18,18 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
         RecyclerView.ViewHolder(binding.root) {
 
         private val detailOrderAdapter = DetailOrderAdapter()
-
+        private var isClick = false
 
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)
+                if (!isClick) {
+                    isClick = true
+                    binding.orderItem.setBackgroundResource(R.drawable.onclick_recycler_bg)
+                } else {
+                    isClick = false
+                    binding.orderItem.setBackgroundResource(R.drawable.recycler_bg)
+                }
             }
         }
 

@@ -32,4 +32,25 @@ class PurchaseDataSourceImpl @Inject constructor(
             }
         }
     }
+
+    override suspend fun moveTemi(seatId: Long): Flow<ApiState<Void>> {
+        return flow {
+            try {
+                val response = api.moveTemi(seatId = seatId)
+                if (response.isSuccessful) {
+                    response.body()?.run {
+                        emit(ApiState.Success(this))
+                    }
+                } else {
+                    try {
+                        emit(ApiState.Error(response.errorBody()!!.string()))
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 }

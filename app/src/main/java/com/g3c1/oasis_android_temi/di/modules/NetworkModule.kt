@@ -53,6 +53,4 @@ object NetworkModule {
     fun provideSeatService(retrofit: Retrofit): PurchaseAPI {
         return retrofit.create(PurchaseAPI::class.java)
     }
-
-
 }
