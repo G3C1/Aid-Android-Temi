@@ -1,13 +1,12 @@
 package com.g3c1.oasis_android_temi.ui.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.g3c1.oasis_android_temi.data.remote.util.ApiState
 import com.g3c1.oasis_android_temi.domain.usecase.purchase.GetOrderListUseCase
 import com.g3c1.oasis_android_temi.domain.usecase.purchase.MoveTemiUseCase
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
+import com.robotemi.sdk.Robot
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
@@ -18,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val getOrderListUseCase: GetOrderListUseCase,
-    private val moveTemiUseCase: MoveTemiUseCase
+    private val moveTemiUseCase: MoveTemiUseCase,
+    val robot: Robot
 ) : ViewModel() {
     val mOrderDataList: MutableStateFlow<ApiState<List<OrderInfo>>> =
         MutableStateFlow(ApiState.Loading())

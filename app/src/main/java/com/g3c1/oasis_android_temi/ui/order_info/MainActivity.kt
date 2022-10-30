@@ -31,6 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private var seatNum: Int = 0
 
     override fun init() {
+        mainViewModel.robot.setKioskModeOn(true)
         getOrderList()
         onClick()
     }
