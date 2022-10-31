@@ -12,6 +12,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/order_item"
             android:layout_width="400dp"
             android:layout_height="570dp"
             android:background="@drawable/recycler_bg"

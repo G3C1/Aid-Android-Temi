@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface PurchaseRepository {
     suspend fun getOrderList(): Flow<ApiState<List<OrderInfo>>>
+
+    suspend fun moveTemi(seatId: Long): Flow<ApiState<Void>>
 }

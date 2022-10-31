@@ -5,5 +5,7 @@ import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
 import kotlinx.coroutines.flow.Flow
 
 interface PurchaseDataSource {
-    suspend fun getOrderList() : Flow<ApiState<List<OrderInfo>>>
+    suspend fun getOrderList(): Flow<ApiState<List<OrderInfo>>>
+
+    suspend fun moveTemi(seatId: Long): Flow<ApiState<Void>>
 }

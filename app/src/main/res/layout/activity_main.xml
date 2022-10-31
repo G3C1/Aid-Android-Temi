@@ -28,18 +28,67 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/order_recycler"
+        <FrameLayout
+            android:layout_marginTop="45dp"
             android:layout_width="900dp"
             android:layout_height="0dp"
-            android:layout_marginTop="45dp"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:listitem="@layout/order_list_item" />
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/order_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/order_list_item" />
+
+            <FrameLayout
+                android:background="@drawable/move_btn_bg"
+                android:id="@+id/move_btn"
+                android:visibility="invisible"
+                android:layout_width="600dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="30dp">
+
+                <TextView
+                    android:id="@+id/table_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/pretendard"
+                    android:text="@string/ex_text"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:layout_marginStart="32dp"
+                    android:fontFamily="@font/pretendard"
+                    android:text="@string/num"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pretendard"
+                    android:text="@string/move"
+                    android:textColor="@color/white"
+                    android:textSize="28sp" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
