@@ -6,13 +6,13 @@
     <data>
         <variable
             name="activity"
-            type="com.g3c1.oasis_android_temi.ui.food_arrived.FoodArriveActivity" />
+            type="com.g3c1.oasis_android_temi.presentation.ui.foodarrived.FoodArriveActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.food_arrived.FoodArriveActivity">
+        tools:context=".presentation.ui.foodarrived.FoodArriveActivity">
 
         <TextView
             android:id="@+id/textView"

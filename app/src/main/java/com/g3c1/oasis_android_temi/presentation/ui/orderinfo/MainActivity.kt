@@ -1,4 +1,4 @@
-package com.g3c1.oasis_android_temi.ui.order_info
+package com.g3c1.oasis_android_temi.presentation.ui.orderinfo
 
 import android.content.Intent
 import android.util.Log
@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.data.remote.util.ApiState
 import com.g3c1.oasis_android_temi.databinding.ActivityMainBinding
-import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
-import com.g3c1.oasis_android_temi.ui.adapter.OrderAdapter
-import com.g3c1.oasis_android_temi.ui.base.BaseActivity
-import com.g3c1.oasis_android_temi.ui.moving.MovingActivity
-import com.g3c1.oasis_android_temi.ui.util.ItemDecorator
-import com.g3c1.oasis_android_temi.ui.viewmodel.MainViewModel
+import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
+import com.g3c1.oasis_android_temi.presentation.adapter.OrderAdapter
+import com.g3c1.oasis_android_temi.presentation.base.BaseActivity
+import com.g3c1.oasis_android_temi.presentation.ui.moving.MovingActivity
+import com.g3c1.oasis_android_temi.presentation.util.ItemDecorator
+import com.g3c1.oasis_android_temi.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -25,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val TAG = "MainActivity"
     private val orderAdapter = OrderAdapter()
     private val mainViewModel by viewModels<MainViewModel>()
-    private lateinit var result: List<OrderInfo>
+    private lateinit var result: List<OrderInfoDTO>
     private var isClick = false
     private var seatId: Long = 0
     private var seatNum: Int = 0

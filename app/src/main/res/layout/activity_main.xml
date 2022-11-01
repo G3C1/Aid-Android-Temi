@@ -6,13 +6,13 @@
     <data>
         <variable
             name="activity"
-            type="com.g3c1.oasis_android_temi.ui.order_info.MainActivity" />
+            type="com.g3c1.oasis_android_temi.presentation.ui.orderinfo.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.order_info.MainActivity">
+        tools:context=".presentation.ui.orderinfo.MainActivity">
 
         <TextView
             android:id="@+id/textView"

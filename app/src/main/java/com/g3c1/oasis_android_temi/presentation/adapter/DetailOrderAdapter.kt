@@ -1,4 +1,4 @@
-package com.g3c1.oasis_android_temi.ui.adapter
+package com.g3c1.oasis_android_temi.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.databinding.OrderListItemItemBinding
-import com.g3c1.oasis_android_temi.dto.purchase.FoodInfo
+import com.g3c1.oasis_android_temi.dto.purchase.FoodInfoDTO
 
 class DetailOrderAdapter :
-    ListAdapter<FoodInfo, DetailOrderAdapter.DetailOrderViewHolder>(diffCallBack) {
+    ListAdapter<FoodInfoDTO, DetailOrderAdapter.DetailOrderViewHolder>(diffCallBack) {
     class DetailOrderViewHolder(private val binding: OrderListItemItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: FoodInfo) {
+        fun bind(data: FoodInfoDTO) {
             binding.foodName.text = data.foodName
             binding.foodCount.text = data.foodCount.toString()
         }
@@ -33,17 +33,17 @@ class DetailOrderAdapter :
     }
 
     companion object {
-        val diffCallBack = object : DiffUtil.ItemCallback<FoodInfo>() {
+        val diffCallBack = object : DiffUtil.ItemCallback<FoodInfoDTO>() {
             override fun areItemsTheSame(
-                oldItem: FoodInfo,
-                newItem: FoodInfo
+                oldItem: FoodInfoDTO,
+                newItem: FoodInfoDTO
             ): Boolean {
                 return oldItem == newItem
             }
 
             override fun areContentsTheSame(
-                oldItem: FoodInfo,
-                newItem: FoodInfo
+                oldItem: FoodInfoDTO,
+                newItem: FoodInfoDTO
             ): Boolean {
                 return oldItem.foodName == newItem.foodName && oldItem.foodCount == newItem.foodCount
             }
