@@ -16,11 +16,9 @@ class PurchaseDataSourceImpl @Inject constructor(
         return flow {
             try {
                 val response = api.getOrderList()
-                if (response.isSuccessful) {
-                    response.body()?.run {
-                        emit(ApiState.Success(this))
-                    }
-                } else {
+                if (response.isSuccessful)
+                    response.body()?.run { emit(ApiState.Success(this)) }
+                else {
                     try {
                         emit(ApiState.Error(response.errorBody()!!.string()))
                     } catch (e: IOException) {
@@ -37,11 +35,9 @@ class PurchaseDataSourceImpl @Inject constructor(
         return flow {
             try {
                 val response = api.moveTemi(seatId = seatId)
-                if (response.isSuccessful) {
-                    response.body()?.run {
-                        emit(ApiState.Success(this))
-                    }
-                } else {
+                if (response.isSuccessful)
+                    response.body()?.run { emit(ApiState.Success(this)) }
+                else {
                     try {
                         emit(ApiState.Error(response.errorBody()!!.string()))
                     } catch (e: IOException) {
