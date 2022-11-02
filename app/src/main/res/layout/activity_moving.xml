@@ -6,13 +6,13 @@
     <data>
         <variable
             name="activity"
-            type="com.g3c1.oasis_android_temi.ui.moving.MovingActivity" />
+            type="com.g3c1.oasis_android_temi.presentation.ui.moving.MovingActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.moving.MovingActivity">
+        tools:context=".presentation.ui.moving.MovingActivity">
 
         <ImageView
             android:layout_marginEnd="300dp"

@@ -1,4 +1,4 @@
-package com.g3c1.oasis_android_temi.ui.adapter
+package com.g3c1.oasis_android_temi.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.databinding.OrderListItemBinding
-import com.g3c1.oasis_android_temi.dto.purchase.OrderInfo
+import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
 
-class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCallBack) {
+class OrderAdapter : ListAdapter<OrderInfoDTO, OrderAdapter.OrderViewHolder>(diffCallBack) {
     class OrderViewHolder(
         private val binding: OrderListItemBinding,
         listener: onItemClickListener
@@ -33,7 +33,7 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
             }
         }
 
-        fun bind(data: OrderInfo) {
+        fun bind(data: OrderInfoDTO) {
             binding.tableNum.text = data.seatNumber.toString()
             binding.foodRecycler.adapter = detailOrderAdapter
             with(binding.foodRecycler) {
@@ -74,17 +74,17 @@ class OrderAdapter : ListAdapter<OrderInfo, OrderAdapter.OrderViewHolder>(diffCa
     }
 
     companion object {
-        val diffCallBack = object : DiffUtil.ItemCallback<OrderInfo>() {
+        val diffCallBack = object : DiffUtil.ItemCallback<OrderInfoDTO>() {
             override fun areItemsTheSame(
-                oldItem: OrderInfo,
-                newItem: OrderInfo
+                oldItem: OrderInfoDTO,
+                newItem: OrderInfoDTO
             ): Boolean {
                 return oldItem == newItem
             }
 
             override fun areContentsTheSame(
-                oldItem: OrderInfo,
-                newItem: OrderInfo
+                oldItem: OrderInfoDTO,
+                newItem: OrderInfoDTO
             ): Boolean {
                 return oldItem.seatNumber == newItem.seatNumber && oldItem.foodInfoList == newItem.foodInfoList
             }

@@ -14,21 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OasisAndroidTemi">
         <activity
-            android:name=".ui.moving.MovingActivity"
+            android:name=".presentation.ui.moving.MovingActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.food_arrived.FoodArriveActivity"
+            android:name=".presentation.ui.foodarrived.FoodArriveActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.order_info.MainActivity"
+            android:name=".presentation.ui.orderinfo.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

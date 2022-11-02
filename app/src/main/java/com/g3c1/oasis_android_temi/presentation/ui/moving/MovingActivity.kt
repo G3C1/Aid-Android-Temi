@@ -1,14 +1,13 @@
-package com.g3c1.oasis_android_temi.ui.moving
+package com.g3c1.oasis_android_temi.presentation.ui.moving
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
-import android.util.Log
 import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.databinding.ActivityMovingBinding
-import com.g3c1.oasis_android_temi.ui.base.BaseActivity
-import com.g3c1.oasis_android_temi.ui.viewmodel.MainViewModel
+import com.g3c1.oasis_android_temi.presentation.base.BaseActivity
+import com.g3c1.oasis_android_temi.presentation.viewmodel.MainViewModel
 import com.robotemi.sdk.listeners.OnMovementStatusChangedListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,13 +47,11 @@ class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_mov
 
     private fun goTable() {
         mainViewModel.robot.goTo(intent.getStringExtra("seatNum")!!)
-        mainViewModel.robot.addOnMovementStatusChangedListener(object :
-            OnMovementStatusChangedListener {
+        mainViewModel.robot.addOnMovementStatusChangedListener(object : OnMovementStatusChangedListener{
             override fun onMovementStatusChanged(type: String, status: String) {
-                Log.d("move status", "type: $type, status: $status")
+
             }
         })
-
     }
 
     private fun robotInit() {

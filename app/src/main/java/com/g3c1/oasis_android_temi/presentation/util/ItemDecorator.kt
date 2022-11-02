@@ -1,4 +1,4 @@
-package com.g3c1.oasis_android_temi.ui.util
+package com.g3c1.oasis_android_temi.presentation.util
 
 import android.graphics.Rect
 import android.view.View
