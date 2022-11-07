@@ -27,65 +27,54 @@
 
 
         <TextView
-            android:fontFamily="@font/pretendard"
-            android:id="@+id/tableNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ex_text"
-            android:textColor="@color/black2"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/movingText"
-            app:layout_constraintTop_toBottomOf="@+id/temi" />
-
-        <TextView
-            android:fontFamily="@font/pretendard"
+            android:layout_marginTop="200dp"
             android:id="@+id/movingText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/moving_ex_text"
+            android:fontFamily="@font/pretendard"
+            android:text="@string/go_homebase"
             android:textColor="@color/black2"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/temi" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:fontFamily="@font/pretendard"
             android:id="@+id/exDot1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard"
             android:text="@string/dot"
             android:textColor="@color/black2"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/movingText"
             app:layout_constraintStart_toEndOf="@id/movingText"
-            app:layout_constraintTop_toBottomOf="@+id/temi" />
+            app:layout_constraintTop_toTopOf="@+id/movingText" />
 
         <TextView
-            android:fontFamily="@font/pretendard"
             android:id="@+id/exDot2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard"
             android:text="@string/dot"
             android:textColor="@color/black2"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/exDot1"
-            app:layout_constraintTop_toBottomOf="@+id/temi" />
+            app:layout_constraintBottom_toBottomOf="@+id/movingText"
+            app:layout_constraintStart_toEndOf="@+id/exDot3"
+            app:layout_constraintTop_toTopOf="@+id/movingText" />
 
         <TextView
-            android:fontFamily="@font/pretendard"
             android:id="@+id/exDot3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard"
             android:text="@string/dot"
             android:textColor="@color/black2"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/exDot2"
-            app:layout_constraintTop_toBottomOf="@+id/temi" />
+            app:layout_constraintBottom_toBottomOf="@+id/movingText"
+            app:layout_constraintStart_toEndOf="@+id/exDot1"
+            app:layout_constraintTop_toTopOf="@+id/movingText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
