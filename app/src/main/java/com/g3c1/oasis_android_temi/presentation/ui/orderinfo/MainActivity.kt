@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.data.remote.util.ApiState
 import com.g3c1.oasis_android_temi.databinding.ActivityMainBinding
+import com.g3c1.oasis_android_temi.dto.purchase.FoodInfoDTO
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
 import com.g3c1.oasis_android_temi.presentation.adapter.OrderAdapter
 import com.g3c1.oasis_android_temi.presentation.base.BaseActivity
@@ -31,18 +32,51 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private var seatNum: Int = 0
 
     override fun init() {
-        mainViewModel.robot.setKioskModeOn(true)
-        getOrderList()
-        onClick()
+        //getOrderList()
+        inputTestData()
+        initRecycler()
+        initFun()
     }
 
-    private fun onClick() {
+    private fun initFun() {
+        initRecycler()
+        initRobot()
+        initOnClick()
+    }
+
+    private fun initOnClick() {
         val intent = Intent(this, MovingActivity::class.java)
         binding.moveBtn.setOnClickListener {
             intent.putExtra("seatNum", seatNum.toString())
-            moveTemi(seatId = seatId)
+            //moveTemi(seatId = seatId)
             startActivity(intent)
         }
+    }
+
+    private fun initRecycler() {
+        with(binding.orderRecycler) {
+            layoutManager = GridLayoutManager(
+                context, 2, GridLayoutManager.VERTICAL, false
+            )
+            addItemDecoration(ItemDecorator(90, "VERTICAL"))
+            setHasFixedSize(true)
+            binding.orderRecycler.adapter = orderAdapter
+        }
+    }
+
+    private fun inputTestData() {
+        result = mutableListOf(
+            OrderInfoDTO(mutableListOf(FoodInfoDTO("치킨", 3)), 1, 1),
+            OrderInfoDTO(mutableListOf(FoodInfoDTO("떡볶이", 3)), 2, 2),
+            OrderInfoDTO(mutableListOf(FoodInfoDTO("피자", 3)), 3, 3)
+        )
+        orderAdapter.submitList(result)
+        itemOnclick()
+    }
+
+    private fun initRobot() {
+        mainViewModel.robot.setKioskModeOn(true)
+        mainViewModel.robot.hideTopBar()
     }
 
     private fun itemOnclick() {
@@ -91,18 +125,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                         Log.d(TAG, it.data.toString())
                         result = it.data!!
                         mainViewModel.mOrderDataList.value = ApiState.Loading()
-                        with(binding.orderRecycler) {
-                            layoutManager = GridLayoutManager(
-                                context,
-                                2,
-                                GridLayoutManager.VERTICAL,
-                                false
-                            )
-                            addItemDecoration(ItemDecorator(90, "VERTICAL"))
-                            setHasFixedSize(true)
-                            binding.orderRecycler.adapter = orderAdapter
-                            orderAdapter.submitList(result)
-                        }
+                        orderAdapter.submitList(result)
                         itemOnclick()
                     }
                     is ApiState.Error -> {
