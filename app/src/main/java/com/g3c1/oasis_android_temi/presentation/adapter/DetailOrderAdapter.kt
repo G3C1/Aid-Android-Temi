@@ -40,7 +40,6 @@ class DetailOrderAdapter :
             ): Boolean {
                 return oldItem == newItem
             }
-
             override fun areContentsTheSame(
                 oldItem: FoodInfoDTO,
                 newItem: FoodInfoDTO

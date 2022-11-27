@@ -1,6 +1,8 @@
 package com.g3c1.oasis_android_temi.presentation.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,14 +11,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.databinding.OrderListItemBinding
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
+import com.g3c1.oasis_android_temi.presentation.util.ItemDecorator
 
-class OrderAdapter : ListAdapter<OrderInfoDTO, OrderAdapter.OrderViewHolder>(diffCallBack) {
-    class OrderViewHolder(
+class OrderAdapter(context: Context) :
+    ListAdapter<OrderInfoDTO, OrderAdapter.OrderViewHolder>(diffCallBack) {
+    val mContext = context
+
+    inner class OrderViewHolder(
         private val binding: OrderListItemBinding,
         listener: OnItemClickListener
     ) :
         RecyclerView.ViewHolder(binding.root) {
-
         private val detailOrderAdapter = DetailOrderAdapter()
 
         init {
@@ -37,8 +42,26 @@ class OrderAdapter : ListAdapter<OrderInfoDTO, OrderAdapter.OrderViewHolder>(dif
                 )
                 setHasFixedSize(true)
             }
+            ItemDecorator(20, "VERTICAL")
             detailOrderAdapter.submitList(data.foodInfoList)
             binding.executePendingBindings()
+            if (adapterPosition == 0 || adapterPosition == data.foodInfoList.size - 1) {
+                binding.orderItem.measure(
+                    View.MeasureSpec.UNSPECIFIED,
+                    View.MeasureSpec.UNSPECIFIED
+                )
+
+                val displayMetrics = mContext.resources.displayMetrics
+                val screenWidth = displayMetrics.heightPixels
+                val mLayoutParam: RecyclerView.LayoutParams =
+                    binding.orderItem.layoutParams as RecyclerView.LayoutParams
+                if (adapterPosition == 0)
+                    mLayoutParam.topMargin =
+                        (screenWidth - binding.orderItem.measuredHeightAndState) / 2
+                else
+                    mLayoutParam.bottomMargin =
+                        (screenWidth - binding.orderItem.measuredHeightAndState) / 2
+            }
         }
     }
 
