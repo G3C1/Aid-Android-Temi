@@ -13,23 +13,16 @@ import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
 class OrderAdapter : ListAdapter<OrderInfoDTO, OrderAdapter.OrderViewHolder>(diffCallBack) {
     class OrderViewHolder(
         private val binding: OrderListItemBinding,
-        listener: onItemClickListener
+        listener: OnItemClickListener
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val detailOrderAdapter = DetailOrderAdapter()
-        private var isClick = false
 
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)
-                if (!isClick) {
-                    isClick = true
-                    binding.orderItem.setBackgroundResource(R.drawable.onclick_recycler_bg)
-                } else {
-                    isClick = false
-                    binding.orderItem.setBackgroundResource(R.drawable.recycler_bg)
-                }
+                binding.orderItem.setBackgroundResource(if (binding.orderItem.isSelected) R.drawable.onclick_recycler_bg else R.drawable.recycler_bg)
             }
         }
 
@@ -49,13 +42,13 @@ class OrderAdapter : ListAdapter<OrderInfoDTO, OrderAdapter.OrderViewHolder>(dif
         }
     }
 
-    private lateinit var mListener: onItemClickListener
+    private lateinit var mListener: OnItemClickListener
 
-    interface onItemClickListener {
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 
-    fun setOnItemClickListener(listener: onItemClickListener) {
+    fun setOnItemClickListener(listener: OnItemClickListener) {
         mListener = listener
     }
 

@@ -14,7 +14,6 @@ import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
 import com.g3c1.oasis_android_temi.presentation.adapter.OrderAdapter
 import com.g3c1.oasis_android_temi.presentation.base.BaseActivity
 import com.g3c1.oasis_android_temi.presentation.ui.moving.MovingActivity
-import com.g3c1.oasis_android_temi.presentation.util.ItemDecorator
 import com.g3c1.oasis_android_temi.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -58,7 +57,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             layoutManager = GridLayoutManager(
                 context, 2, GridLayoutManager.VERTICAL, false
             )
-            addItemDecoration(ItemDecorator(90, "VERTICAL"))
             setHasFixedSize(true)
             binding.orderRecycler.adapter = orderAdapter
         }
@@ -80,7 +78,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun itemOnclick() {
-        orderAdapter.setOnItemClickListener(object : OrderAdapter.onItemClickListener {
+        orderAdapter.setOnItemClickListener(object : OrderAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 if (!isClick) {
                     isClick = true

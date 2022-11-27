@@ -7,48 +7,85 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="330dp"
-        android:layout_height="80dp">
+        android:layout_width="702dp"
+        android:layout_height="105dp">
+
+        <ImageView
+            android:id="@+id/food_img"
+            android:layout_width="88dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="9dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:layout_marginStart="24dp"
+            android:textStyle="bold"
             android:id="@+id/food_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ex_text_2"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/food_img"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/food_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/pretendard"
+            android:text="@string/exxample_money_text"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/food_img"
+            app:layout_constraintTop_toBottomOf="@+id/food_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard"
+            android:text="@string/won"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/food_price"
+            app:layout_constraintTop_toBottomOf="@+id/food_name" />
+
+
+        <TextView
+            android:layout_marginBottom="9dp"
             android:id="@+id/food_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ex_text"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:layout_marginEnd="26dp"
+            android:layout_marginBottom="9dp"
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cnt"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/line" />
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
