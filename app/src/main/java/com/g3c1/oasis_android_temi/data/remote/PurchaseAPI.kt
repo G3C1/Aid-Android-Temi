@@ -8,8 +8,10 @@ import retrofit2.http.Path
 
 interface PurchaseAPI {
     @GET("v2/purchase/find/{serialNumber}")
-    suspend fun getOrderList(): Response<List<OrderInfoDTO>>
+    suspend fun getOrderList(
+        @Path("serialNumber") serialNumber: Long
+    ): Response<List<OrderInfoDTO>>
 
-    @DELETE("purchase/{seatId}")
+    @DELETE("v1/purchase/{seatId}")
     suspend fun moveTemi(@Path("seatId") seatId: Long): Response<Void>
 }

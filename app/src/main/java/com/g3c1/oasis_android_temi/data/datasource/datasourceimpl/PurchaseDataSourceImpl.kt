@@ -15,7 +15,7 @@ class PurchaseDataSourceImpl @Inject constructor(
     override suspend fun getOrderList(): Flow<ApiState<List<OrderInfoDTO>>> {
         return flow {
             try {
-                val response = api.getOrderList()
+                val response = api.getOrderList(1)
                 if (response.isSuccessful)
                     response.body()?.run { emit(ApiState.Success(this)) }
                 else {

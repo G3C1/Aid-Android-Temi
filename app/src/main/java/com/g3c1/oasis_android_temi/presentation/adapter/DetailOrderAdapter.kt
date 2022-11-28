@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.g3c1.oasis_android_temi.databinding.OrderListItemItemBinding
 import com.g3c1.oasis_android_temi.dto.purchase.FoodInfoDTO
 
@@ -15,6 +16,8 @@ class DetailOrderAdapter :
         fun bind(data: FoodInfoDTO) {
             binding.foodName.text = data.foodName
             binding.foodCount.text = data.foodCount.toString()
+            binding.foodPrice.text = data.price.toString()
+            binding.foodImg.load(data.foodImg)
         }
     }
 
