@@ -79,6 +79,8 @@ object Dependency {
 
     object ImageLoad {
         const val COIL = "io.coil-kt:coil:${Versions.COIL_VERSION}"
+        const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE_VERSION}"
+        const val GLIDE_COMPLILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE_VERSION}"
     }
 
     object Lottie {
