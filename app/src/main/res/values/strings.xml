@@ -12,4 +12,6 @@
     <string name="cnt">개</string>
     <string name="num">번</string>
     <string name="move">이동</string>
+    <string name="exxample_money_text">00000</string>
+    <string name="won">원</string>
 </resources>

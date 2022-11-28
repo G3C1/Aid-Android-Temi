@@ -9,15 +9,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.data.remote.util.ApiState
 import com.g3c1.oasis_android_temi.databinding.ActivityMainBinding
-import com.g3c1.oasis_android_temi.dto.purchase.FoodInfoDTO
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
 import com.g3c1.oasis_android_temi.presentation.adapter.OrderAdapter
 import com.g3c1.oasis_android_temi.presentation.base.BaseActivity
 import com.g3c1.oasis_android_temi.presentation.ui.moving.MovingActivity
-import com.g3c1.oasis_android_temi.presentation.util.ItemDecorator
 import com.g3c1.oasis_android_temi.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -32,8 +29,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private var seatNum: Int = 0
 
     override fun init() {
-        //getOrderList()
-        inputTestData()
+        getOrderList()
+        //inputTestData()
         initRecycler()
         initFun()
     }
@@ -48,7 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         val intent = Intent(this, MovingActivity::class.java)
         binding.moveBtn.setOnClickListener {
             intent.putExtra("seatNum", seatNum.toString())
-            //moveTemi(seatId = seatId)
+            moveTemi(seatId = seatId)
             startActivity(intent)
         }
     }
@@ -58,21 +55,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             layoutManager = GridLayoutManager(
                 context, 2, GridLayoutManager.VERTICAL, false
             )
-            addItemDecoration(ItemDecorator(90, "VERTICAL"))
             setHasFixedSize(true)
             binding.orderRecycler.adapter = orderAdapter
         }
     }
 
-    private fun inputTestData() {
-        result = mutableListOf(
-            OrderInfoDTO(mutableListOf(FoodInfoDTO("치킨", 3)), 1, 1),
-            OrderInfoDTO(mutableListOf(FoodInfoDTO("떡볶이", 3)), 2, 2),
-            OrderInfoDTO(mutableListOf(FoodInfoDTO("피자", 3)), 3, 3)
-        )
-        orderAdapter.submitList(result)
-        itemOnclick()
-    }
+//    private fun inputTestData() {
+//        result = mutableListOf(
+//            OrderInfoDTO(mutableListOf(FoodInfoDTO("치킨", 3)), 1, 1),
+//            OrderInfoDTO(mutableListOf(FoodInfoDTO("떡볶이", 3)), 2, 2),
+//            OrderInfoDTO(mutableListOf(FoodInfoDTO("피자", 3)), 3, 3)
+//        )
+//        orderAdapter.submitList(result)
+//        itemOnclick()
+//    }
 
     private fun initRobot() {
         mainViewModel.robot.setKioskModeOn(true)
@@ -80,7 +76,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun itemOnclick() {
-        orderAdapter.setOnItemClickListener(object : OrderAdapter.onItemClickListener {
+        orderAdapter.setOnItemClickListener(object : OrderAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 if (!isClick) {
                     isClick = true
