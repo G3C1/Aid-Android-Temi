@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PurchaseAPI {
-    @GET("purchase/")
+    @GET("v2/purchase/find/{serialNumber}")
     suspend fun getOrderList(): Response<List<OrderInfoDTO>>
 
     @DELETE("purchase/{seatId}")

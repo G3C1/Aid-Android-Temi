@@ -6,7 +6,6 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.data.remote.util.ApiState
 import com.g3c1.oasis_android_temi.databinding.ActivityMainBinding
@@ -19,13 +18,12 @@ import com.g3c1.oasis_android_temi.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import kotlin.math.max
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private val TAG = "MainActivity"
-    private val orderAdapter = OrderAdapter(context = this)
+    private val orderAdapter = OrderAdapter()
     private val mainViewModel by viewModels<MainViewModel>()
     private lateinit var result: List<OrderInfoDTO>
     private var isClick = false
@@ -61,27 +59,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             )
             setHasFixedSize(true)
             binding.orderRecycler.adapter = orderAdapter
-            addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                    super.onScrollStateChanged(recyclerView, newState)
-                    if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                        val firstPos =
-                            (layoutManager as GridLayoutManager).findFirstCompletelyVisibleItemPosition()
-                        val secondPos =
-                            (layoutManager as GridLayoutManager).findFirstVisibleItemPosition()
-
-                        val selectedPos = max(firstPos, secondPos)
-                        if (selectedPos != -1) {
-                            val viewItem =
-                                (layoutManager as GridLayoutManager).findViewByPosition(selectedPos)
-                            viewItem?.run {
-                                val itemMargin = (measuredHeight - viewItem.measuredHeight) / 2
-                                smoothScrollBy(this.y.toInt() - itemMargin, 0)
-                            }
-                        }
-                    }
-                }
-            })
         }
     }
 

@@ -17,8 +17,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="108dp"
             android:id="@+id/order_recycler"
-            android:layout_width="1708dp"
-            android:layout_height="844dp"
+            android:layout_width="1190dp"
+            android:layout_height="576dp"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"

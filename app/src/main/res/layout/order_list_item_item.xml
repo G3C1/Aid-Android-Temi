@@ -7,7 +7,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="702dp"
+        android:layout_width="502dp"
         android:layout_height="105dp">
 
         <ImageView
@@ -17,7 +17,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="9dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground"
+            android:src="@drawable/move_btn_bg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
