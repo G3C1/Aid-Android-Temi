@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <RadioGroup
-            android:id="@+id/order_item"
+            android:id="@+id/orderItem"
             android:layout_width="560dp"
             android:layout_height="575dp"
             android:background="@drawable/recycler_bg"
@@ -30,7 +30,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/table_num"
+                    android:id="@+id/tableNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -55,7 +55,7 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/food_recycler"
+                android:id="@+id/foodRecycler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
