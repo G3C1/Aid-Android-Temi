@@ -39,6 +39,7 @@ object Versions {
     const val GLIDE_VERSION = "4.10.0"
     const val SHIMMER = "0.5.0"
     const val LOTTIE_VERSION = "5.2.0"
+    const val CODE_SCANNER = "2.3.2"
 
     const val TEMI = "0.10.79"
 }

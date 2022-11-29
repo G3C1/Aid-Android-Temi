@@ -60,6 +60,9 @@ object Dependency {
         const val MOSHI = "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}"
         const val MOSHI_COMPILER = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.MOSHI}"
         const val SHIMMER = "com.facebook.shimmer:shimmer:${Versions.SHIMMER}"
+        const val CODE_SCANNER = "com.github.yuriy-budiyev:code-scanner:${Versions.CODE_SCANNER}"
+        const val DATASTORE = "androidx.datastore:datastore-preferences:1.0.0"
+        const val DATASTORE_CORE = "androidx.datastore:datastore-preferences-core:1.0.0"
     }
 
     object UnitTest {
