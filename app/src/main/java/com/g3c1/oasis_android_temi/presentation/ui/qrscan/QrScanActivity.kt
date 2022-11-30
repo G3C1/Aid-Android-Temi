@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
@@ -12,14 +13,20 @@ import com.g3c1.oasis_android_temi.databinding.ActivityQrScanBinding
 import com.g3c1.oasis_android_temi.di.TemiApplication
 import com.g3c1.oasis_android_temi.presentation.base.BaseActivity
 import com.g3c1.oasis_android_temi.presentation.ui.orderinfo.MainActivity
+import com.g3c1.oasis_android_temi.presentation.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class QrScanActivity : BaseActivity<ActivityQrScanBinding>(R.layout.activity_qr_scan) {
     private lateinit var codeScanner: CodeScanner
+    private val vm by viewModels<MainViewModel>()
 
     override fun init() {
+        vm.robot.setKioskModeOn(true)
+        vm.robot.hideTopBar()
         setupPermissions()
         codeScanner()
     }
