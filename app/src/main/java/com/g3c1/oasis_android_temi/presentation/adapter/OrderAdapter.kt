@@ -1,5 +1,6 @@
 package com.g3c1.oasis_android_temi.presentation.adapter
 
+import android.content.ClipData.Item
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -38,8 +39,8 @@ class OrderAdapter :
                     false
                 )
                 setHasFixedSize(true)
+                addItemDecoration(ItemDecorator(20,"VERTICAL"))
             }
-            ItemDecorator(20, "VERTICAL")
             detailOrderAdapter.submitList(data.foodInfoList)
             binding.executePendingBindings()
         }

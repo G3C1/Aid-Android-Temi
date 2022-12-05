@@ -14,4 +14,6 @@
     <string name="move">이동</string>
     <string name="exxample_money_text">00000</string>
     <string name="won">원</string>
+    <string name="registration">등록</string>
+    <string name="qr_registration_text">큐알을 등록해 주세요</string>
 </resources>
