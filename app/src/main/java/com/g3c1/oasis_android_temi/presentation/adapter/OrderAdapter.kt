@@ -1,6 +1,5 @@
 package com.g3c1.oasis_android_temi.presentation.adapter
 
-import android.content.ClipData.Item
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -25,7 +24,7 @@ class OrderAdapter :
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)
-                binding.orderItem.setBackgroundResource(if (binding.orderItem.isSelected) R.drawable.onclick_recycler_bg else R.drawable.recycler_bg)
+                binding.orderItem.setBackgroundResource(if (binding.orderItem.isSelected) R.drawable.onclick_true_recycler_bg else R.drawable.onclick_false_recycler_bg)
             }
         }
 
