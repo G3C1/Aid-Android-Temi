@@ -16,18 +16,10 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".presentation.ui.qrscan.QrScanActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,22 +27,29 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".presentation.ui.qrscan.QrScanActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".presentation.ui.moving.MovingActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".presentation.ui.foodarrived.FoodArriveActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".presentation.ui.orderinfo.MainActivity"
-            android:exported="true"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
