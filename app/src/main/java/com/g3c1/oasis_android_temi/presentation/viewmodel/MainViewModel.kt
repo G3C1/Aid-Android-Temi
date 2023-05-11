@@ -8,6 +8,7 @@ import com.g3c1.oasis_android_temi.domain.usecase.purchase.MoveTemiUseCase
 import com.g3c1.oasis_android_temi.dto.purchase.OrderInfoDTO
 import com.robotemi.sdk.Robot
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -26,11 +27,14 @@ class MainViewModel @Inject constructor(
         MutableStateFlow(ApiState.Loading())
 
     fun getOrderList() = viewModelScope.launch {
-        mOrderDataList.value = ApiState.Loading()
-        getOrderListUseCase.getOrderList().catch { error ->
-            mOrderDataList.value = ApiState.Error(error.message.toString())
-        }.collect { value ->
-            mOrderDataList.value = value
+        while (true) {
+            mOrderDataList.value = ApiState.Loading()
+            getOrderListUseCase.getOrderList().catch { error ->
+                mOrderDataList.value = ApiState.Error(error.message.toString())
+            }.collect { value ->
+                mOrderDataList.value = value
+            }
+            delay(2000)
         }
     }
 

@@ -36,7 +36,7 @@ class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_mov
         when (status) {
             "complete" -> {
                 startActivity(
-                    if (intent.getStringExtra("seatNum") != "홈베이스") Intent(
+                    if (intent.getStringExtra("seatNum") != "home base") Intent(
                         this,
                         FoodArriveActivity::class.java
                     ) else Intent(this, MainActivity::class.java)
@@ -60,7 +60,7 @@ class MovingActivity : BaseActivity<ActivityMovingBinding>(R.layout.activity_mov
         val seatNum = intent.getStringExtra("seatNum")
         binding.movingText.text =
             when (seatNum) {
-                "홈베이스" -> {
+                "home base" -> {
                     getString(R.string.go_homebase)
                 }
                 else -> {

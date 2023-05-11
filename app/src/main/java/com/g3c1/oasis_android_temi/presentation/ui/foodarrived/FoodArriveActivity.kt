@@ -1,6 +1,7 @@
 package com.g3c1.oasis_android_temi.presentation.ui.foodarrived
 
 import android.content.Intent
+import android.util.Log
 import androidx.activity.viewModels
 import com.g3c1.oasis_android_temi.R
 import com.g3c1.oasis_android_temi.databinding.ActivityFoodBinding
@@ -17,8 +18,9 @@ class FoodArriveActivity : BaseActivity<ActivityFoodBinding>(R.layout.activity_f
     override fun init() {
         val intent = Intent(this, MovingActivity::class.java)
         binding.backBtn.setOnClickListener {
-            intent.putExtra("seatNum", "홈베이스")
-            viewModel.robot.goTo("홈베이스")
+            intent.putExtra("seatNum", "home base")
+            Log.d("gotoHomeBase", viewModel.robot.locations.toString())
+            Log.d("gotoHomeBase", "홈베로 이동 시작!")
             startActivity(intent)
         }
     }

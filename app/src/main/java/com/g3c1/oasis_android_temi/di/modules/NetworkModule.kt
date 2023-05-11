@@ -35,7 +35,7 @@ object NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL.BASE_URL)
+            .baseUrl("https://port-0-aid-user-3vw25lc9r1wy7.gksl2.cloudtype.app/api/")
             .client(okHttpClient)
             .client(provideOkhttpClient())
             .addConverterFactory(gsonConverterFactory)
